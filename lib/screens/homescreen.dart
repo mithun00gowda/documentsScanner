@@ -1,0 +1,70 @@
+import 'dart:math'; // Required for sin, cos, and atan2
+import 'package:documentscanner/widgets/customAppBar.dart';
+import 'package:documentscanner/widgets/customCards.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class Homescreen extends StatefulWidget {
+  const Homescreen({super.key});
+
+  @override
+  State<Homescreen> createState() => _HomescreenState();
+}
+
+class _HomescreenState extends State<Homescreen> {
+  // 1. Track the global rotation of the entire dial
+  double _rotationAngle = 0.0;
+
+  // Try 5 or 6 cards to make the circle look full
+  final int _itemCount = 6;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [
+                  Colors.greenAccent.shade100,
+                  Colors.orangeAccent.shade100,
+                  Colors.redAccent.shade100
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter)),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                    iconSize: 30,
+                    style: const ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(
+                            Color.fromRGBO(255, 255, 255, 1))),
+                    onPressed: () {},
+                    icon: const Icon(Icons.question_mark_rounded)),
+                IconButton(
+                    iconSize: 30,
+                    style: const ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(
+                            Color.fromRGBO(255, 255, 255, 1))),
+                    onPressed: () {},
+                    icon: const Icon(Icons.account_circle_outlined))
+              ],
+            ),
+             Text(
+              "Hi Mithun, How can i help you today?",
+              style:GoogleFonts.poppins(fontSize: 50, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 40),
+
+            // 2. Rotary Dial Implementation
+            // 2. Rotary Dial Implementation
+          ],
+        ),
+      ),
+    );
+  }
+}
