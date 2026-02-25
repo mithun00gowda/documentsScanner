@@ -79,44 +79,11 @@ class _HomescreenState extends State<Homescreen> {
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(
-              height: 250, // Adjust this height based on your CustomCards size
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: _itemCount,
-                clipBehavior: Clip.none, // Prevents clipping if cards get pushed down too far
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return AnimatedBuilder(
-                    animation: _pageController,
-                    builder: (context, child) {
-                      double pageOffset = 0;
-                      if (_pageController.position.haveDimensions) {
-                        pageOffset = _pageController.page! - index;
-                      } else {
-                        pageOffset = (0.0 - index); // Fallback for initial render
-                      }
 
-                      // 1. Calculate vertical drop (Creates the curve shape)
-                      // Multiplying the offset by itself creates a parabola (U-shape)
-                      double yOffset = (pageOffset * pageOffset) * 40.0;
-
-                      // 2. Calculate tilt (Creates a fan effect)
-                      double tiltAngle = pageOffset * 0.15;
-
-                      return Transform.translate(
-                        offset: Offset(0, yOffset),
-                        child: Transform.rotate(
-                          angle: tiltAngle,
-                          child: child, // This renders your CustomCards
-                        ),
-                      );
-                    },
-                    child: CustomCards(),
-                  );
-                },
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+                child: Row(children: List.generate(3, (index) => CustomCards()),),
               ),
-            ),
             SizedBox(height: 10),
             Container(
               padding: EdgeInsets.all(10),
