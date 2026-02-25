@@ -27,6 +27,21 @@ class _HomescreenState extends State<Homescreen> {
     super.dispose();
   }
 
+  List cardData = [
+    {
+      "label": "Scan",
+      "Icon": Icons.document_scanner_rounded,
+      "bgColor": Colors.lightBlueAccent,
+    },
+    {
+      "label": "Read",
+      "Icon": Icons.book_outlined,
+      "bgColor": Colors.orangeAccent,
+    },
+    {"label": "List", "Icon": Icons.edit, "bgColor": Colors.greenAccent},
+    {"label": "Ask AI", "Icon": Icons.mic, "bgColor": Colors.brown.shade300},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,8 +97,17 @@ class _HomescreenState extends State<Homescreen> {
 
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-                child: Row(children: List.generate(3, (index) => CustomCards()),),
+              child: Row(
+                children: List.generate(
+                  cardData.length,
+                  (index) => CustomCards(
+                    bgColor: cardData[index]['bgColor'],
+                    iconsData: cardData[index]['Icon'],
+                    label: cardData[index]['label'],
+                  ),
+                ),
               ),
+            ),
             SizedBox(height: 10),
             Container(
               padding: EdgeInsets.all(10),

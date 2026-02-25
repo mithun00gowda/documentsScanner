@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomCards extends StatelessWidget {
-  const CustomCards({super.key});
+  final String label;
+  final IconData iconsData;
+  final Color bgColor;
+  const CustomCards({super.key, required this.label, required this.iconsData, required this.bgColor});
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +32,14 @@ class CustomCards extends StatelessWidget {
             style: ButtonStyle(
               iconSize: WidgetStatePropertyAll(30),
               backgroundColor: WidgetStatePropertyAll(
-                Colors.lightBlueAccent,
+                bgColor,
               ),
               padding: WidgetStatePropertyAll(EdgeInsets.all(15))
             ),
             onPressed: () {},
-            icon: Icon(Icons.document_scanner_outlined),
+            icon: Icon(iconsData),
           ),
-          Text("Scan", style: GoogleFonts.poppins(fontSize: 18,fontWeight: FontWeight.w500)),
+          Text(label, style: GoogleFonts.poppins(fontSize: 18,fontWeight: FontWeight.w500)),
         ],
       ),
     )        ;
