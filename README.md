@@ -36,5 +36,5 @@ To run this project locally, ensure you have Flutter installed on your machine.
 
 **1. Clone the repository**
 ```bash
-git clone <your-repo-url-here>
+git clone https://github.com/mithun00gowda/documentsScanner
 cd documentscanner
