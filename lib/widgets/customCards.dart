@@ -5,7 +5,8 @@ class CustomCards extends StatelessWidget {
   final String label;
   final IconData iconsData;
   final Color bgColor;
-  const CustomCards({super.key, required this.label, required this.iconsData, required this.bgColor});
+  final Widget pageName;
+  const CustomCards({super.key, required this.label, required this.iconsData, required this.bgColor, required this.pageName});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,9 @@ class CustomCards extends StatelessWidget {
               ),
               padding: WidgetStatePropertyAll(EdgeInsets.all(15))
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => pageName));
+            },
             icon: Icon(iconsData),
           ),
           Text(label, style: GoogleFonts.poppins(fontSize: 18,fontWeight: FontWeight.w500)),

@@ -1,4 +1,5 @@
 import 'dart:math'; // Required for sin, cos, and atan2
+import 'package:documentscanner/screens/scannerScreen.dart';
 import 'package:documentscanner/widgets/customAppBar.dart';
 import 'package:documentscanner/widgets/customCards.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,7 @@ class _HomescreenState extends State<Homescreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 35),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
@@ -104,6 +105,7 @@ class _HomescreenState extends State<Homescreen> {
                     bgColor: cardData[index]['bgColor'],
                     iconsData: cardData[index]['Icon'],
                     label: cardData[index]['label'],
+                    pageName: Scannerscreen(),
                   ),
                 ),
               ),
