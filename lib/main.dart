@@ -1,3 +1,4 @@
+import 'package:documentscanner/screens/authentication/rootScreen.dart';
 import 'package:documentscanner/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,9 @@ class MainApp extends StatelessWidget {
 
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homescreen(),
+      theme: ThemeData(
+      ),
+      home: Rootscreen(),
     );
   }
 }
